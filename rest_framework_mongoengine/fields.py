@@ -75,8 +75,14 @@ class ReferenceField(MongoDocumentField):
             dbref = self.model_field.to_python(value)
         except InvalidId:
             raise ValidationError(self.error_messages['invalid'])
+        son_value = self.model_field.document_type._get_db().dereference(dbref)
 
-        instance = dereference.DeReference().__call__([dbref])[0]
+        # Check that document reference was found
+        if son_value is None:
+            msg = self.error_messages['invalid']
+            raise ValidationError(msg)
+
+        instance = self.model_field.document_type._from_son(son_value)
 
         # Check if dereference was successful
         if not isinstance(instance, Document):
