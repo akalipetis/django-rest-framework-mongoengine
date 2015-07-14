@@ -5,7 +5,7 @@ setup(
     version='1.5.4',
     description='Model Serializer that supports MongoEngine, for Django Rest Framework.',
     packages=['rest_framework_mongoengine',
-              'rest_framework_mongoengine.django'],
+              'rest_framework_mongoengine.django_compat'],
     license='see https://github.com/umutbozkurt/django-rest-framework-mongoengine/blob/master/LICENSE',
     long_description='see https://github.com/umutbozkurt/django-rest-framework-mongoengine/blob/master/README.md',
     url='https://github.com/umutbozkurt/django-rest-framework-mongoengine',

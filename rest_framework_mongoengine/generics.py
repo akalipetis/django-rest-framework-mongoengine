@@ -1,7 +1,9 @@
 from django.core.exceptions import ImproperlyConfigured
 from rest_framework import mixins
 from rest_framework.generics import GenericAPIView
-from rest_framework_mongoengine.django.shortcuts import get_document_or_404
+from rest_framework_mongoengine.django_compat.shortcuts import (
+    get_document_or_404
+)
 
 
 class MongoAPIView(GenericAPIView):
